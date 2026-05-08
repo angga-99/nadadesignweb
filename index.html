@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Nada Web Design — Premium Website Agency</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+:root{
+  --bg:#FFFFFF;
+  --bg2:#F8F7FC;
+  --primary:#6D28D9;
+  --primary2:#8B5CF6;
+  --text:#111827;
+  --muted:#6B7280;
+  --line:rgba(0,0,0,0.08);
+  --card:#FFFFFF;
+  --glass:rgba(255,255,255,0.75);
+  --shadow:0 20px 60px rgba(109,40,217,0.12);
+  --radius:28px;
+  --transition:.4s cubic-bezier(.25,.8,.25,1);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#ffffff;
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+  content:'';
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle, rgba(109,40,217,.10), transparent 70%);
+  top:-300px;
+  left:-200px;
+  z-index:-2;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle, rgba(168,85,247,.08), transparent 70%);
+  bottom:-300px;
+  right:-200px;
+  z-index:-2;
+}
+
+.blur-ball{
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:rgba(139,92,246,.10);
+  filter:blur(100px);
+  z-index:-1;
+}
+
+.noise{
+  position:fixed;
+  inset:0;
+  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:.07;
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* GLOBAL */
+
+.container{
+  width:min(1200px,90%);
+  margin:auto;
+}
+
+section{
+  padding:120px 0;
+}
+
+.section-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 18px;
+  border:1px solid #E9D5FF;
+  border-radius:999px;
+  background:#F3F0FF;
+  color:#6D28D9;
+  font-size:.9rem;
+  margin-bottom:24px;
+  backdrop-filter:blur(20px);
+}
+
+.section-title{
+  font-size:clamp(2.4rem,5vw,4rem);
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.section-desc{
+  color:var(--muted);
+  max-width:700px;
+  line-height:1.8;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 32px;
+  border-radius:18px;
+  text-decoration:none;
+  font-weight:600;
+  transition:var(--transition);
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:white;
+  box-shadow:var(--shadow);
+}
+
+.btn-primary:hover{
+  transform:translateY(-5px);
+}
+
+.btn-secondary{
+  border:1px solid rgba(0,0,0,.08);
+  color:var(--text);
+  background:rgba(255,255,255,.03);
+  backdrop-filter:blur(10px);
+}
+
+.btn-secondary:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  backdrop-filter:blur(18px);
+  top:0;
+  width:100%;
+  z-index:999;
+  transition:.4s;
+  background:rgba(255,255,255,.75);
+}
+
+nav.scrolled{
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+
+.nav-wrapper{
+  height:90px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+  color:var(--text);
+}
+
+.logo-img{
+  height:58px;
+  width:auto;
+  object-fit:contain;
+  border-radius:14px;
+  transition:.3s ease;
+  filter:
+  drop-shadow(0 8px 20px rgba(37,99,235,0.15));
+}
+
+.logo-img:hover{
+  transform:translateY(-2px) scale(1.02);
+}
+
+.logo-box{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  box-shadow:var(--shadow);
+}
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.logo-text span{
+  font-size:.8rem;
+  color:var(--muted);
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  color:var(--text);
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--text);
+  position:relative;
+  font-size:.95rem;
+}
+
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-8px;
+  left:0;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--primary2));
+  transition:.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+.mobile-toggle{
+  display:none;
+  font-size:1.5rem;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  padding-top:80px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:70px;
+  align-items:center;
+}
+
+.hero-title{
+  font-size:clamp(3rem,6vw,5.8rem);
+  line-height:1;
+  margin-bottom:30px;
+  font-weight:800;
+}
+
+.gradient-text{
+  background:linear-gradient(135deg,#6D28D9,#8B5CF6,#A855F7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero-desc{
+  color:var(--muted);
+  font-size:1.15rem;
+  line-height:1.9;
+  margin-bottom:40px;
+  max-width:650px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:50px;
+}
+
+.social-proof{
+margin-top:20px;
+color:var(--muted);
+font-size:.95rem;
+}
+
+.hero-stats{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.hero-stat h3{
+  font-size:2rem;
+}
+
+.hero-stat p{
+  color:var(--muted);
+  margin-top:8px;
+}
+
+/* HERO CARD */
+
+.hero-visual{
+  position:relative;
+}
+
+.dashboard{
+  background:#ffffff;
+  border:1px solid #E5E7EB;
+  backdrop-filter:blur(20px);
+  border-radius:32px;
+  padding:28px;
+  box-shadow:0 30px 80px rgba(109,40,217,.12);;
+  position:relative;
+  overflow:hidden;
+}
+
+.dashboard::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,.08), transparent);
+}
+
+.browser{
+  background:#FFFFFF;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.browser-top{
+  padding:14px 18px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  display:flex;
+  gap:8px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#444;
+}
+
+.browser-body{
+  padding:40px;
+}
+
+.fake-card{
+  background:#F8F7FC;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:24px;
+  padding:30px;
+  margin-bottom:20px;
+}
+
+.fake-line{
+  height:12px;
+  border-radius:999px;
+  background:#E5E7EB;
+  margin-bottom:14px;
+}
+
+.fake-line.large{
+  width:90%;
+  height:20px;
+}
+
+.fake-line.small{
+  width:40%;
+}
+
+/* TRUST */
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin-top:60px;
+}
+
+.trust-card{
+  padding:40px 30px;
+  border-radius:28px;
+  background:var(--card);
+  border:1px solid var(--line);
+  transition:var(--transition);
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+
+.trust-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(124,77,255,.4);
+}
+
+.trust-icon{
+  width:70px;
+  height:70px;
+  border-radius:20px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  margin-bottom:24px;
+  box-shadow:var(--shadow);
+}
+
+.trust-card h3{
+  margin-bottom:16px;
+  font-size:1.2rem;
+}
+
+.trust-card p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;
+  margin-top:70px;
+}
+
+.portfolio-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  border:1px solid #E5E7EB;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  transition:.5s ease;
+}
+
+.portfolio-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:1s;
+}
+.portfolio-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 60px rgba(109,40,217,.15);
+}
+.portfolio-card:hover img{
+  transform:scale(1.08);
+}
+
+.portfolio-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.9), transparent);
+  display:flex;
+  align-items:flex-end;
+  padding:30px;
+}
+
+/* PRICING */
+
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+  margin-top:70px;
+}
+
+.price-card{
+  padding:45px;
+  border-radius:30px;
+  background:#FFFFFF;
+  border:1px solid rgba(255,255,255,.08);
+  transition:var(--transition);
+  position:relative;
+  box-shadow:0 15px 40px rgba(0,0,0,0.04);
+}
+
+.price-card:hover{
+  transform:translateY(-10px);
+}
+
+.price-card.popular{
+  background:linear-gradient(180deg, rgba(124,77,255,.25), rgba(255,255,255,.04));
+  border:1px solid rgba(124,77,255,.4);
+  box-shadow:var(--shadow);
+}
+
+.popular-badge{
+  position:absolute;
+  top:20px;
+  right:20px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  font-size:.8rem;
+  font-weight:700;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:24px;
+margin-top:60px;
+}
+
+.testimonial-card{
+padding:35px;
+background:#fff;
+border:1px solid #E5E7EB;
+border-radius:28px;
+box-shadow:0 10px 30px rgba(0,0,0,.04);
+}
+
+.testimonial-card p{
+line-height:1.9;
+color:var(--muted);
+margin-bottom:20px;
+}
+
+.price{
+  font-size:3rem;
+  font-weight:800;
+  margin:24px 0;
+}
+
+.features{
+  list-style:none;
+  margin:30px 0;
+}
+
+.features li{
+  margin-bottom:18px;
+  color:var(--muted);
+}
+
+.features i{
+  color:#A855F7;
+  margin-right:12px;
+}
+
+/* CTA */
+
+.cta-box{
+  padding:80px;
+  border-radius:40px;
+  background:linear-gradient(135deg, #FFFFFF, #F5F3FF);
+  border:1px solid #E9D5FF;
+  box-shadow:0 20px 60px rgba(109,40,217,.08);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.cta-box::before{
+  content:'';
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle, rgba(255,255,255,.08), transparent);
+  top:-200px;
+  right:-100px;
+}
+
+.faq-box{
+padding:30px;
+background:#fff;
+border:1px solid #E5E7EB;
+border-radius:24px;
+margin-top:20px;
+}
+
+.faq-box h3{
+margin-bottom:10px;
+}
+
+.faq-box p{
+color:var(--muted);
+line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+  background:#F8FAFC;
+  padding:100px 0 40px;
+  border-top:1px solid #E5E7EB;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+}
+
+.footer-links a{
+  display:block;
+  color:var(--muted);
+  margin-bottom:14px;
+  text-decoration:none;
+}
+
+.footer-links a:hover{
+  color:var(--primary);
+}
+
+/* WA */
+
+.wa{
+  position:fixed;
+  right:30px;
+  bottom:30px;
+  width:65px;
+  height:65px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#25D366,#1ebe57);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:1.6rem;
+  text-decoration:none;
+  box-shadow:0 20px 40px rgba(37,211,102,.35);
+  z-index:999;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:80px;
+  }
+
+  .trust-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav-links{
+    position:fixed;
+    inset:90px 0 auto 0;
+    background:#FFFFFF;
+    flex-direction:column;
+    padding:40px;
+    display:none;
+	border-top:1px solid rgba(0,0,0,.06);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .mobile-toggle{
+    display:block;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+<div class="blur-ball"></div>
+<div class="noise"></div>
+
+<!-- NAVBAR -->
+
+<nav id="navbar">
+<div class="container nav-wrapper">
+
+<a href="#" class="logo">
+
+<img src="logobaru.png" alt="Nada Web Design Logo" class="logo-img">
+
+</a>
+
+<div class="nav-links" id="navLinks">
+<a href="#">Beranda</a>
+<a href="#">Layanan</a>
+<a href="#">Portofolio</a>
+<a href="#">Harga</a>
+<a href="#">Kontak</a>
+<a href="https://wa.me/628131766720" class="btn btn-primary">
+Mulai Sekarang
+</a>
+</div>
+
+<div class="mobile-toggle" id="toggle">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="section-badge">
+<i class="fa-solid fa-star"></i>
+Website Premium Untuk UMKM Indonesia
+</div>
+
+<h1 class="hero-title">
+Website Premium untuk
+<span class="gradient-text">
+UMKM Modern
+</span>
+yang Ingin Terlihat Lebih Profesional
+</h1>
+
+<p class="hero-desc">
+Kami membantu UMKM tampil lebih profesional dengan website premium yang cepat, modern, mobile friendly, dan dirancang khusus untuk meningkatkan konversi pelanggan.
+</p>
+
+<div class="hero-buttons">
+<div class="social-proof">
+<p>Dipercaya UMKM, bisnis lokal, dan personal brand.</p>
+</div>
+<a href="https://wa.me/628131766720" class="btn btn-primary">
+<i class="fab fa-whatsapp"></i>
+Konsultasi Gratis
+</a>
+
+<a href="#" class="btn btn-secondary">
+Lihat Portofolio
+</a>
+
+</div>
+
+<div class="hero-stats">
+
+<div class="hero-stat">
+<h3>50+</h3>
+<p>Project Selesai</p>
+</div>
+
+<div class="hero-stat">
+<h3>98%</h3>
+<p>Kepuasan Client</p>
+</div>
+
+<div class="hero-stat">
+<h3>24/7</h3>
+<p>Support Cepat</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="hero-visual">
+
+<div class="dashboard">
+
+<div class="browser">
+
+<div class="browser-top">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+
+<div class="browser-body">
+
+<div class="fake-card">
+<div class="fake-line large"></div>
+<div class="fake-line"></div>
+<div class="fake-line small"></div>
+</div>
+
+<div class="fake-card">
+<div class="fake-line large"></div>
+<div class="fake-line"></div>
+<div class="fake-line"></div>
+<div class="fake-line small"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TRUST -->
+
+<section>
+
+<div class="container">
+
+<div class="section-badge">
+Kenapa Memilih Kami
+</div>
+
+<h2 class="section-title">
+Bukan Sekadar Website,
+Tapi Mesin Penjualan Digital
+</h2>
+
+<p class="section-desc">
+Kami membangun website yang tidak hanya terlihat bagus, tetapi juga fokus pada branding, kecepatan, SEO, dan conversion.
+</p>
+
+<div class="trust-grid">
+
+<div class="trust-card">
+<div class="trust-icon">
+<i class="fa-solid fa-bolt"></i>
+</div>
+<h3>Super Fast Performance</h3>
+<p>Website ringan dan cepat dibuka agar pengunjung tidak kabur sebelum membeli.</p>
+</div>
+
+<div class="trust-card">
+<div class="trust-icon">
+<i class="fa-solid fa-mobile-screen"></i>
+</div>
+<h3>Mobile First Design</h3>
+<p>Tampilan premium dan responsif di semua ukuran layar smartphone.</p>
+</div>
+
+<div class="trust-card">
+<div class="trust-icon">
+<i class="fa-solid fa-chart-line"></i>
+</div>
+<h3>SEO Optimized</h3>
+<p>Struktur website dibuat agar lebih mudah muncul di Google.</p>
+</div>
+
+<div class="trust-card">
+<div class="trust-icon">
+<i class="fa-solid fa-headset"></i>
+</div>
+<h3>After Sales Support</h3>
+<p>Kami tetap membantu setelah website selesai dibuat.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PORTFOLIO -->
+
+<section>
+
+<div class="container">
+
+<div class="section-badge">
+Portofolio
+</div>
+
+<h2 class="section-title">
+Desain Elegan
+Untuk Brand Modern
+</h2>
+
+<div class="portfolio-grid">
+
+<div class="portfolio-card">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+<div class="portfolio-overlay">
+<div>
+<h3>Corporate Website</h3>
+<p>Premium Business Landing Page</p>
+</div>
+</div>
+</div>
+
+<div class="portfolio-card">
+<img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop">
+<div class="portfolio-overlay">
+<div>
+<h3>E-Commerce Modern</h3>
+<p>Online Store Experience</p>
+</div>
+</div>
+</div>
+
+<div class="portfolio-card">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+<div class="portfolio-overlay">
+<div>
+<h3>Startup Dashboard</h3>
+<p>Modern SaaS Interface</p>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="testimonials">
+<div class="container">
+
+<div class="section-badge">
+Testimoni Client
+</div>
+
+<h2 class="section-title">
+Client Puas Dengan Hasil Website Kami
+</h2>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+<p>
+“Website saya jadi jauh lebih profesional dan closing meningkat.”
+</p>
+<h4>— Owner Coffee Shop</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+“Design clean, modern, dan responsif di semua device.”
+</p>
+<h4>— Fashion Brand</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+“Fast response dan pengerjaan sangat rapi.”
+</p>
+<h4>— Personal Branding</h4>
+</div>
+
+</div>
+</div>
+</section>
+<!-- PRICING -->
+
+<section>
+
+<div class="container">
+
+<div class="section-badge">
+Paket Harga
+</div>
+
+<h2 class="section-title">
+Investasi Kecil,
+Impact Besar
+</h2>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+
+<h3>Starter</h3>
+
+<div class="price">
+1.5jt
+</div>
+
+<ul class="features">
+<li><i class="fa-solid fa-check"></i>Landing Page Premium</li>
+<li><i class="fa-solid fa-check"></i>Mobile Friendly</li>
+<li><i class="fa-solid fa-check"></i>Integrasi WhatsApp</li>
+<li><i class="fa-solid fa-check"></i>Free Domain & Hosting</li>
+</ul>
+
+<a href="https://wa.me/628131766720" class="btn btn-secondary">
+Pilih Paket
+</a>
+
+</div>
+
+<div class="price-card popular">
+
+<div class="popular-badge">
+TERLARIS
+</div>
+
+<h3>Professional</h3>
+
+<div class="price">
+3.5jt
+</div>
+
+<ul class="features">
+<li><i class="fa-solid fa-check"></i>Website Hingga 5 Halaman</li>
+<li><i class="fa-solid fa-check"></i>SEO Optimization</li>
+<li><i class="fa-solid fa-check"></i>Premium UI/UX</li>
+<li><i class="fa-solid fa-check"></i>Copywriting Persuasif</li>
+<li><i class="fa-solid fa-check"></i>Free Maintenance</li>
+</ul>
+
+<a href="https://wa.me/628131766720" class="btn btn-primary">
+Mulai Sekarang
+</a>
+
+</div>
+
+<div class="price-card">
+
+<h3>Enterprise</h3>
+
+<div class="price">
+Custom
+</div>
+
+<ul class="features">
+<li><i class="fa-solid fa-check"></i>E-Commerce / Custom System</li>
+<li><i class="fa-solid fa-check"></i>Unlimited Pages</li>
+<li><i class="fa-solid fa-check"></i>Admin Dashboard</li>
+<li><i class="fa-solid fa-check"></i>Priority Support</li>
+</ul>
+
+<a href="https://wa.me/628131766720" class="btn btn-secondary">
+Hubungi Kami
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section>
+
+<div class="container">
+
+<div class="cta-box">
+
+<div class="section-badge">
+Limited Slot Available
+</div>
+
+<h2 class="section-title">
+Tingkatkan Branding Bisnis Anda
+Dengan Website Premium
+</h2>
+
+<p class="section-desc" style="margin:auto; margin-bottom:40px;">
+Kami hanya menerima beberapa project setiap bulan agar kualitas tetap maksimal.
+</p>
+
+<a href="https://wa.me/628131766720" class="btn btn-primary">
+<i class="fab fa-whatsapp"></i>
+Konsultasi Gratis Sekarang
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-badge">
+FAQ
+</div>
+
+<h2 class="section-title">
+Pertanyaan Yang Sering Ditanyakan
+</h2>
+
+<div class="faq-box">
+<h3>Berapa lama pengerjaan website?</h3>
+<p>Rata-rata 3–7 hari tergantung kebutuhan project.</p>
+</div>
+
+<div class="faq-box">
+<h3>Apakah dapat domain dan hosting?</h3>
+<p>Ya, beberapa paket sudah termasuk domain dan hosting.</p>
+</div>
+
+<div class="faq-box">
+<h3>Apakah website bisa diakses lewat HP?</h3>
+<p>Tentu, semua website dibuat responsive dan mobile-friendly.</p>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<div class="logo" style="margin-bottom:24px;">
+<div class="logo-box">N</div>
+<div class="logo-text">
+<strong>NADA WEB DESIGN</strong>
+<span>Premium Web Agency</span>
+</div>
+</div>
+
+<p style="color:var(--muted); line-height:1.9;">
+Membantu UMKM tampil lebih profesional dengan website modern yang meningkatkan branding dan penjualan.
+</p>
+
+</div>
+
+<div class="footer-links">
+<h3 style="margin-bottom:24px;">Navigasi</h3>
+<a href="#">Beranda</a>
+<a href="#">Layanan</a>
+<a href="#">Portofolio</a>
+<a href="#">Harga</a>
+</div>
+
+<div class="footer-links">
+<h3 style="margin-bottom:24px;">Kontak</h3>
+<a href="#">WhatsApp</a>
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
+<a href="#">Email</a>
+</div>
+
+</div>
+
+<div style="margin-top:70px; padding-top:30px; border-top:1px solid rgba(255,255,255,.06); color:var(--muted); text-align:center;">
+© 2026 Nada Web Design — All Rights Reserved
+</div>
+
+</div>
+
+</footer>
+
+<!-- FLOAT WA -->
+
+<a href="https://wa.me/628131766720" class="wa">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll',()=>{
+
+if(window.scrollY > 40){
+navbar.classList.add('scrolled');
+}else{
+navbar.classList.remove('scrolled');
+}
+
+});
+
+const toggle = document.getElementById('toggle');
+const navLinks = document.getElementById('navLinks');
+
+toggle.addEventListener('click',()=>{
+navLinks.classList.toggle('active');
+});
+
+</script>
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script>
+
+ScrollReveal().reveal('.hero-title',{
+distance:'60px',
+duration:1400,
+origin:'bottom',
+opacity:0,
+reset:false
+});
+
+ScrollReveal().reveal('.trust-card',{
+interval:150,
+distance:'40px',
+duration:1200
+});
+
+ScrollReveal().reveal('.portfolio-card',{
+interval:200,
+scale:.9,
+duration:1400
+});
+
+</script>
+</body>
+</html>
